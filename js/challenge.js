@@ -1,16 +1,14 @@
-
 let counterDisplay = document.getElementById("counter")
 let minusButton = document.getElementById("minus")
 let plusButton = document.getElementById("plus")
 let likeButton = document.getElementById("heart")
 let ul = document.querySelector("ul")
-// let ul = document.getElementsByTagName("UL")
-//     ul = ul[0]
-    
+let pauseButton = document.getElementById("pause")
 
 
 let counter = parseInt(counterDisplay.innerText)
 let timer = setInterval(addOne, 1000)
+let likes = 0
 
 function addOne(){
     counter = counter + 1
@@ -27,11 +25,27 @@ function plusOne(){
     counterDisplay.innerHTML = counter
 }
 
-function likeNumber(){ 
-    let li = document.createElement("li")
-    li.innerHTML = `${counter} was liked x times`
-    ul.appendChild(li)
+const count = parseInt(counterDisplay.innerText)
 
+function likeNumber(){ 
+   console.log(likeButton)
+    console.log(count)
+    let li = document.createElement("li")
+    li.innerHTML = `${count} was liked ${likes} times`
+    ul.appendChild(li)
+    
+    if (count != counter){
+        likes = 1
+    }
+    else{ 
+         likes = likes + 1
+    }
+   
+}
+
+function pauseNumber(){
+
+    
 }
 
 // identify the elemnt for the button
@@ -40,7 +54,6 @@ function likeNumber(){
 // grab the current timer value
 // print the number you liked and how many times yuo liked it in an li
 
-
 document.addEventListener("DOMContentLoaded", function(){
     timer
 })
@@ -48,4 +61,4 @@ document.addEventListener("DOMContentLoaded", function(){
 minusButton.addEventListener("click", minusOne)
 plusButton.addEventListener("click", plusOne)
 likeButton.addEventListener("click", likeNumber)
-
+// pauseButton.addEventListener("click", pauseNumber)
