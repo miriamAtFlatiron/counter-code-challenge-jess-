@@ -2,7 +2,8 @@ let counterDisplay = document.getElementById("counter")
 let minusButton = document.getElementById("minus")
 let plusButton = document.getElementById("plus")
 let likeButton = document.getElementById("heart")
-let ul = document.querySelector("ul")
+// let ul = document.querySelector("ul")
+let likesElement = document.querySelector(".likes")
 let pauseButton = document.getElementById("pause")
 
 
@@ -26,29 +27,30 @@ function plusOne(){
 }
 
 // const count = parseInt(counterDisplay.innerText)
-
-function likeNumber(){ 
-
-    const counterNumber = (counterDisplay.innerText)
+function likeNumber(){
+    console.log("here")
+    const counterNumber = counterDisplay.innerText
     let li = document.createElement("li")
-    li.innerHTML = `${counter} was liked ${likes} times`
-    ul.appendChild(li)
-
+    
     if (likes == 0){
-        likes += 1
-        console.log(likes)
-        const counterNumber = (counterDisplay.innerText)
-        let li = document.createElement("li")
-        li.innerHTML = `${counterNumber} was liked ${likes} times`
+        likes +=1
+        console.log("likes", likes)
+        console.log("counterNumber", counterNumber)
+        li.innerText = `${counterNumber} was liked ${likes} times`
+        likesElement.appendChild(li)
     }
     else {
         likes += 1
-        ul.lastChild.innerText = `${counter} was liked ${likes} times`
+        console.log("likes", likes)
+        console.log("counterNumber", counterNumber)
+        // likesElement.lastChild.innerText = `${counter} was liked ${likes} times`
+        li.innerText = `${counterNumber} was liked ${likes} times`
+        likesElement.appendChild(li)
     }
 
 }
 
-// function pauseNumber(){
+// pauseButton.addEventListener("click", function pauseNumber(){
 
 // }
 
